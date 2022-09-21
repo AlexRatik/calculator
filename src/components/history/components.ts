@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HistoryWrapper = styled.aside`
   font-size: ${({ theme }) => theme.fontSizes[3]};
   position: relative;
-  padding: ${({ theme }) => `${theme.spaces[2]} ${theme.spaces[2]} 80px`};
+  padding: ${({ theme }) => theme.spaces[2]};
   display: flex;
   flex-direction: column;
   align-items: center;
