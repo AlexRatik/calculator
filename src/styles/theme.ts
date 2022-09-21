@@ -3,7 +3,7 @@ const font = 'sans-serif';
 const black = '#000000';
 const white = '#ffffff';
 const error = '#c86464';
-const primaryLight = '#fdd1d1';
+const primaryLight = 'linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%)';
 const secondaryLight = white;
 const primaryDark = '#684545';
 const secondaryDark = black;
@@ -13,6 +13,7 @@ const lightBg = '#f5f5f5';
 const darkBg = '#3e3e3e';
 const slimBorderWidth = '1px';
 const blockBorderWidth = '2px';
+const buttonBorderRadius = '20px';
 
 const defaultTheme = {
   font,
@@ -22,6 +23,7 @@ const defaultTheme = {
   headerHeight: '80px',
   slimBorderWidth,
   blockBorderWidth,
+  buttonBorderRadius,
   webkitScrollBarWidth: '5px',
   defaultTransition: '100ms',
   colors: {
