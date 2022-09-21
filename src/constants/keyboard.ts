@@ -19,9 +19,11 @@ export const keyboard = [
   '0',
   ')',
   'CE',
+  '+/-',
 ];
 export enum keyboardEnum {
   CLEAR = 'C',
   CLEAR_ENTRY = 'CE',
   EQUAL = '=',
+  TOGGLE_SIGN = '+/-',
 }
