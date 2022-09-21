@@ -5,7 +5,7 @@ import { Home } from '@pages/home';
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/fc" element={<Home />} />
     </Routes>
   );
 };
