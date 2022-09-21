@@ -10,6 +10,7 @@ import {
   clearHistory,
   equalExpression,
   setTap,
+  toggleSign,
 } from '@slices/calculatorSlice';
 import { keyboardEnum } from '@constants/keyboard';
 import { History } from '@components/history';
@@ -25,6 +26,8 @@ export const Home = () => {
       dispatch(backspaceExpression());
     } else if (value === keyboardEnum.EQUAL) {
       dispatch(equalExpression());
+    } else if (value === keyboardEnum.TOGGLE_SIGN) {
+      dispatch(toggleSign());
     } else {
       dispatch(setTap(value));
     }
