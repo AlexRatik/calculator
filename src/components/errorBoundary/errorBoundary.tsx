@@ -1,4 +1,5 @@
 import React, { Component, ReactNode } from 'react';
+import { StyledError } from '@components/errorBoundary/components';
 
 interface ErrorBoundaryProps {
   errorMessage: string;
@@ -23,7 +24,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
   render() {
     if (this.state.hasError) {
-      return <p>{this.props.errorMessage}</p>;
+      return <StyledError>{this.props.errorMessage}</StyledError>;
     }
 
     return this.props.children;
