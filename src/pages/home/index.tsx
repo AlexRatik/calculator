@@ -2,7 +2,7 @@ import React from 'react';
 import { ErrorBoundary } from '@components/errorBoundary';
 import { HomeContainer, Wrapper } from './components';
 import { Display } from '@components/display';
-import { Keyboard } from '@components/keyboard';
+import { Keypad } from '@components/keypad';
 import { useAppDispatch, useAppSelector } from '@hooks/hooks';
 import {
   backspaceExpression,
@@ -35,7 +35,7 @@ export const Home = () => {
       <ErrorBoundary errorMessage={'Something went wrong...'}>
         <Wrapper>
           <Display value={expression} error={error} />
-          <Keyboard
+          <Keypad
             onClick={(val: string) => {
               tap(val);
             }}

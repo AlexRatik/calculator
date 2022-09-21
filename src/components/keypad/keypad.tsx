@@ -1,13 +1,13 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { keyboard } from '@constants/keyboard';
-import { Button, Container } from '@components/keyboard/components';
+import { Button, Container } from '@components/keypad/components';
 
 interface KeyboardProps {
   onClick: (val: string) => void;
 }
 
-export const Keyboard = ({ onClick }: KeyboardProps) => {
+export const Keypad = ({ onClick }: KeyboardProps) => {
   return (
     <Container>
       {keyboard.map((button) => (
