@@ -3,6 +3,7 @@ import { addToExpression } from '../../utils/addToExpression';
 import { backspaceToExpression } from '../../utils/backspaceToExpression';
 import { evaluate } from 'mathjs';
 import { transformResult } from '../../utils/transformResult';
+import { toggleLastValueSign } from '../../utils/toggleLastValueSign';
 
 interface InitialState {
   expression: string;
@@ -20,6 +21,9 @@ export const calculatorSlice = createSlice({
   name: 'calculator',
   initialState,
   reducers: {
+    toggleSign: (state) => {
+      state.expression = toggleLastValueSign(state.expression);
+    },
     setTap: (state, action: PayloadAction<string>) => {
       state.error = '';
       state.expression = addToExpression(state.expression, action.payload);
@@ -50,7 +54,13 @@ export const calculatorSlice = createSlice({
   },
 });
 
-export const { setTap, clearHistory, clearExpression, backspaceExpression, equalExpression } =
-  calculatorSlice.actions;
+export const {
+  setTap,
+  toggleSign,
+  clearHistory,
+  clearExpression,
+  backspaceExpression,
+  equalExpression,
+} = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;
