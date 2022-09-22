@@ -12,7 +12,7 @@ import {
   setTap,
   toggleSign,
 } from '@slices/calculatorSlice';
-import { keyboardEnum } from '@constants/keyboard';
+import { keyboardEnum } from '@constants/keypad';
 import { History } from '@components/history';
 
 export const Home = () => {
