@@ -4,14 +4,9 @@ import { backspaceToExpression } from '../../utils/backspaceToExpression';
 import { evaluate } from 'mathjs';
 import { transformResult } from '../../utils/transformResult';
 import { toggleLastValueSign } from '../../utils/toggleLastValueSign';
+import { ICalculator } from '@interfaces/ICalculator';
 
-interface InitialState {
-  expression: string;
-  history: string[];
-  error: string;
-}
-
-const initialState: InitialState = {
+const initialState: ICalculator = {
   expression: '0',
   history: [],
   error: '',
