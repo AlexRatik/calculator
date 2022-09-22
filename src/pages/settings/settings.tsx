@@ -14,10 +14,10 @@ export const Settings = () => {
       <SettingsTitle>Settings</SettingsTitle>
       <SettingsWrapper>
         <p>Choose theme:</p>
-        <Select onChange={(e) => dispatch(setTheme(e.target.value as Theme))}>
+        <Select onChange={(e) => dispatch(setTheme(e.target.value as Theme))} value={theme}>
           {Object.keys(ThemeObj).map((val) => {
             return (
-              <option key={uuidv4()} value={val} selected={val === theme}>
+              <option key={uuidv4()} value={val}>
                 {val} theme
               </option>
             );
