@@ -35,7 +35,7 @@ export const Home = () => {
 
   return (
     <HomeContainer>
-      <ErrorBoundary errorMessage={'Something went wrong...'}>
+      <ErrorBoundary errorMessage={'Something went wrong...Try again, please'}>
         <Wrapper>
           <Display value={expression} error={error} />
           <Keypad
