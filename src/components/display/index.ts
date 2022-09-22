@@ -1,2 +1,3 @@
 import { Display } from './display';
-export { Display };
+import { DisplayOnClass } from './displayOnClass';
+export { Display, DisplayOnClass };

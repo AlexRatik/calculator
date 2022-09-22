@@ -1,2 +1,3 @@
 import { Keypad } from './keypad';
-export { Keypad };
+import { KeypadOnClass } from './keypadOnClass';
+export { Keypad, KeypadOnClass };

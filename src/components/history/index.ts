@@ -1,2 +1,3 @@
 import { History } from './history';
-export { History };
+import { HistoryOnClass } from './historyOnClass';
+export { History, HistoryOnClass };
