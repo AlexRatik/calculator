@@ -1,4 +1,4 @@
-export const keyboard = [
+export const keypad = [
   'C',
   '7',
   '8',
@@ -20,6 +20,7 @@ export const keyboard = [
   ')',
   'CE',
   '+/-',
+  '%',
 ];
 export enum keyboardEnum {
   CLEAR = 'C',
