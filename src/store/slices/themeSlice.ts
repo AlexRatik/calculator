@@ -1,5 +1,5 @@
 import { darkTheme, lightTheme } from '@styles';
-import { Theme } from '@constants/theme';
+import { Theme, ThemeObj } from '@constants/theme';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface InitialState {
@@ -8,8 +8,8 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  theme: Theme.light,
-  configuration: lightTheme,
+  theme: ThemeObj.dark,
+  configuration: darkTheme,
 };
 
 export const themeSlice = createSlice({
