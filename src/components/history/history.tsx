@@ -5,17 +5,20 @@ import { HistoryWrapper, HistoryList, HistoryListItem, Button } from './componen
 interface HistoryProps {
   data: string[];
   clearHistory: () => void;
+  isShow: boolean;
 }
 
-export const History = ({ clearHistory, data }: HistoryProps) => {
+export const History = ({ isShow, clearHistory, data }: HistoryProps) => {
   return (
-    <HistoryWrapper>
+    <HistoryWrapper isShow={isShow}>
       <HistoryList>
         {data.map((record) => (
           <HistoryListItem key={uuidv4()}>{record}</HistoryListItem>
         ))}
       </HistoryList>
-      <Button onClick={() => clearHistory()}>Clear</Button>
+      <Button isShow={isShow} onClick={() => clearHistory()}>
+        Clear
+      </Button>
     </HistoryWrapper>
   );
 };
