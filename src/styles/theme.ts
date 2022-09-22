@@ -5,7 +5,8 @@ const white = '#ffffff';
 const error = '#c86464';
 const primaryLight = 'linear-gradient(90deg, #fdfbfb 0%, #ebedee 100%)';
 const secondaryLight = white;
-const primaryDark = '#684545';
+const primaryDark =
+  'linear-gradient(90deg, #504d4d 0%, #504d4d 21%, #504d4d 40%, #504d4d 66%, #504d4d 100%)';
 const secondaryDark = black;
 const borderLight = '#727272';
 const borderDark = '#f7f9fa';
