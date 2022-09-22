@@ -16,7 +16,7 @@ import { KeypadOnClass } from '@components/keypad';
 import { HistoryOnClass } from '@components/history';
 import { keyboardEnum } from '@constants/keypad';
 
-interface HomeOnClassesProps extends ICalculator {
+interface HomeOnClassProps extends ICalculator {
   setTap: (action: string) => void;
   toggleSign: () => void;
   clearHistory: () => void;
@@ -25,12 +25,12 @@ interface HomeOnClassesProps extends ICalculator {
   equalExpression: () => void;
 }
 
-interface HomeOnClassesState {
+interface HomeOnClassState {
   isShowHistory: boolean;
 }
 
-class HomeOnClasses extends Component<HomeOnClassesProps, HomeOnClassesState> {
-  constructor(props: HomeOnClassesProps) {
+class HomeOnClass extends Component<HomeOnClassProps, HomeOnClassState> {
+  constructor(props: HomeOnClassProps) {
     super(props);
     this.state = {
       isShowHistory: true,
@@ -96,4 +96,4 @@ const mapDispatchToProps = {
   equalExpression,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeOnClasses);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeOnClass);
