@@ -5,12 +5,12 @@ import { navLinks } from '@constants/navLinks';
 
 export const Header = () => {
   return (
-    <Container>
-      <h1>Calculator</h1>
+    <Container data-testid="header">
+      <h1 data-testid="header_title">Calculator</h1>
       <nav>
-        <NavList>
-          {navLinks.map((data) => (
-            <NavListLink key={uuidv4()} to={data.path}>
+        <NavList data-testid="header_nav">
+          {navLinks.map((data, index) => (
+            <NavListLink key={uuidv4()} to={data.path} data-testid={`header_nav_item${index}`}>
               {data.text}
             </NavListLink>
           ))}
