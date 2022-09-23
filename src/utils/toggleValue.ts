@@ -4,7 +4,7 @@ const reverseAndJoin: (val: string) => string = (str: string) => {
   return str.split('').reverse().join('');
 };
 
-export const toggleLastValueSign: (val: string) => string = (expr: string) => {
+export const toggleValue: (val: string) => string = (expr: string) => {
   const arr = expr.split('');
   let value = '';
   let result = '';
@@ -13,8 +13,10 @@ export const toggleLastValueSign: (val: string) => string = (expr: string) => {
     if (!operations.includes(arr[i])) {
       value += arr[i];
     } else {
+      // (1+1)3=>(1+1)*(-3
       if (arr[i] === ')') {
-        continue;
+        result = expr.slice(0, i + 1) + `*(-${reverseAndJoin(value)}`;
+        break;
       }
 
       // For example: (-4) => 4
@@ -32,11 +34,18 @@ export const toggleLastValueSign: (val: string) => string = (expr: string) => {
         result = expr.slice(0, i + 1) + `(-`;
         break;
       }
-      if (+arr[i - 1] >= 0) {
+      // (3+2)+3=>(3+2)+(-3)
+      if (+arr[i - 1] >= 0 || arr[i - 1] === ')') {
+        result = expr.slice(0, i + 1) + `(-${reverseAndJoin(value)})`;
+        break;
+      }
+      //(42-23) => ((-42)-23)
+      if (arr[i] === '(') {
         result = expr.slice(0, i + 1) + `(-${reverseAndJoin(value)})`;
         break;
       }
     }
   }
+
   return result || `(-${reverseAndJoin(value)})`;
 };
