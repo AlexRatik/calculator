@@ -1,4 +1,4 @@
-export const backspaceToExpression = (expression: string) => {
+export const backspaceFromExpression = (expression: string) => {
   if (expression.length === 1) {
     return '0';
   } else {

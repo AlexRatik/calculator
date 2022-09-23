@@ -1,6 +1,6 @@
 const operationsAndDot = ['.', '/', '*', '+', '-'];
 
-export const addToExpression = (expression: string, value: string) => {
+export const addSymbolToExpression = (expression: string, value: string) => {
   let result = String(expression);
   const lastCharIsOperation = operationsAndDot.includes(result[result.length - 1]);
   const valueIsOperation = operationsAndDot.includes(value);
