@@ -1,20 +1,24 @@
-import React from 'react';
+import { memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { keypad } from '@constants/keypad';
 import { Button, Container } from '@components/keypad/components';
 
 interface KeypadProps {
   onClick: (val: string) => void;
+  keypadButtons: string[];
 }
 
-export const Keypad = ({ onClick }: KeypadProps) => {
+export const Keypad = memo(({ onClick, keypadButtons }: KeypadProps) => {
   return (
     <Container>
-      {keypad.map((button) => (
-        <Button key={uuidv4()} onClick={() => onClick(button)}>
+      {keypadButtons.map((button) => (
+        <Button
+          key={uuidv4()}
+          onClick={() => onClick(button)}
+          data-testid={`keypad_button${button}`}
+        >
           {button}
         </Button>
       ))}
     </Container>
   );
-};
+});
