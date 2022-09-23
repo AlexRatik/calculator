@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { DisplayWrapper, ErrorWrapper } from '@components/display/components';
 
 interface DisplayOnClassProps {
@@ -6,12 +6,13 @@ interface DisplayOnClassProps {
   error: string;
 }
 
-export class DisplayOnClass extends Component<DisplayOnClassProps> {
+export class DisplayOnClass extends PureComponent<DisplayOnClassProps> {
   render() {
+    const { error, value } = this.props;
     return (
-      <DisplayWrapper>
-        <p>{this.props.value}</p>
-        <ErrorWrapper>{this.props.error}</ErrorWrapper>
+      <DisplayWrapper data-testid="display">
+        <p data-testid="display_text">{value}</p>
+        <ErrorWrapper data-testid="display_error">{error}</ErrorWrapper>
       </DisplayWrapper>
     );
   }
