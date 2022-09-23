@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { addToExpression } from '../../utils/addToExpression';
-import { backspaceToExpression } from '../../utils/backspaceToExpression';
-import { evaluate } from 'mathjs';
-import { transformResult } from '../../utils/transformResult';
-import { toggleLastValueSign } from '../../utils/toggleLastValueSign';
-import { ICalculator } from '@interfaces/ICalculator';
+import { addSymbolToExpression } from '@utils';
+import { backspaceFromExpression } from '@utils';
+import { transformResult } from '@utils';
+import { toggleValue } from '@utils';
+import { ICalculator } from '@interfaces';
+import { calculateExpression } from '@utils';
+import { ErrorMessagesEnum } from '@constants/ErrorMessages';
 
 const initialState: ICalculator = {
   expression: '0',
@@ -17,11 +18,11 @@ export const calculatorSlice = createSlice({
   initialState,
   reducers: {
     toggleSign: (state) => {
-      state.expression = toggleLastValueSign(state.expression);
+      state.expression = toggleValue(state.expression);
     },
     setTap: (state, action: PayloadAction<string>) => {
       state.error = '';
-      state.expression = addToExpression(state.expression, action.payload);
+      state.expression = addSymbolToExpression(state.expression, action.payload);
     },
     clearExpression: (state) => {
       state.error = '';
@@ -29,18 +30,22 @@ export const calculatorSlice = createSlice({
     },
     backspaceExpression: (state) => {
       state.error = '';
-      state.expression = backspaceToExpression(state.expression);
+      state.expression = backspaceFromExpression(state.expression);
     },
     equalExpression: (state) => {
       state.error = '';
       try {
         if (Number.isNaN(Number(state.expression))) {
-          const res = transformResult(evaluate(state.expression));
+          const res = transformResult(calculateExpression(state.expression));
           state.history.push(`${state.expression} = ${res}`);
           state.expression = String(res);
         }
       } catch (e) {
-        state.error = 'Invalid expression';
+        if (e instanceof Error) {
+          state.error = e.message;
+        } else {
+          state.error = ErrorMessagesEnum.SOMETHING_WENT_WRONG;
+        }
       }
     },
     clearHistory: (state) => {
