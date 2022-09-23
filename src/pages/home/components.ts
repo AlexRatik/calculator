@@ -13,11 +13,3 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 `;
-
-export const ShowHideButton = styled.button`
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-  font-size: ${({ theme }) => theme.fontSizes[3]};
-  padding: ${({ theme }) => theme.spaces[3]};
-`;
