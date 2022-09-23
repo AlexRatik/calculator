@@ -14,7 +14,8 @@
     "paths": {
       "@app": [
         "src/app/"
-      ],"@assets/*": [
+      ],
+      "@assets/*": [
         "src/assets/*"
       ],
       "@components/*": [
@@ -23,14 +24,17 @@
       "@constants/*": [
         "src/constants/*"
       ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@interfaces/*": [
-        "src/interfaces/*"
-      ],
       "@pages/*": [
         "src/pages/*"
+      ],
+      "@slices/*": [
+        "src/store/slices/*"
+      ],
+      "@hooks": [
+        "src/hooks/"
+      ],
+      "@interfaces": [
+        "src/interfaces/"
       ],
       "@styles": [
         "src/styles/"
@@ -38,8 +42,11 @@
       "@store": [
         "src/store/"
       ],
-      "@slices/*": [
-        "src/store/slices/*"
+      "@types": [
+        "src/types/"
+      ],
+      "@utils": [
+        "src/utils/"
       ]
     },
     "strict": true,
@@ -50,7 +57,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["cypress"]
   },
   "include": [
     "src"
