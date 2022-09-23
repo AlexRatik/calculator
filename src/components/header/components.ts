@@ -8,7 +8,6 @@ export const Container = styled.header`
   justify-content: space-between;
   column-gap: 50px;
   padding: ${({ theme }) => theme.spaces[3]};
-  min-height: ${({ theme }) => theme.headerHeight};
   background: ${({ theme }) => theme.headerBg};
   color: ${({ theme }) => theme.headerColor};
 `;

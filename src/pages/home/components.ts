@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ShowHideButton = styled.button`
-  position: absolute;
+  position: fixed;
   right: 10px;
   bottom: 10px;
   font-size: ${({ theme }) => theme.fontSizes[3]};

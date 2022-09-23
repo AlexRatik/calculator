@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HistoryWrapper = styled.aside<{ isShow: boolean }>`
+export const HistoryContainer = styled.aside<{ isShow: boolean }>`
   font-size: ${({ theme }) => theme.fontSizes[3]};
   position: relative;
   padding: ${({ theme }) => theme.spaces[2]};

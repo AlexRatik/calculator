@@ -12,5 +12,13 @@ export const Button = styled.button`
   width: ${({ theme }) => theme.keySize};
   height: ${({ theme }) => theme.keySize};
   font-size: ${({ theme }) => theme.fontSizes[5]};
-  border-radius: ${({ theme }) => theme.buttonBorderRadius};
+  border-radius: ${({ theme }) => theme.buttonBorderRadiuses[1]};
+
+  @media (max-width: 640px) {
+    font-size: ${({ theme }) => theme.fontSizes[2]};
+    border-radius: ${({ theme }) => theme.buttonBorderRadiuses[0]};
+  }
+  @media (max-width: 380px) {
+    font-size: ${({ theme }) => theme.fontSizes[1]};
+  }
 `;
