@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppRouter } from './appRouter';
-import { useAppSelector } from '@hooks/hooks';
+import { useAppSelector } from '@hooks';
 import { ThemeProvider } from 'styled-components';
 import { Header } from '@components/header';
 import { GlobalStyles } from '@styles';
