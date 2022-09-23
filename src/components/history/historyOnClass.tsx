@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {
   Button,
+  HistoryContainer,
   HistoryList,
   HistoryListItem,
-  HistoryWrapper,
 } from '@components/history/components';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -17,16 +17,18 @@ export class HistoryOnClass extends Component<HistoryOnClassProps> {
   render() {
     const { data, clearHistory, isShow } = this.props;
     return (
-      <HistoryWrapper isShow={isShow}>
-        <HistoryList>
-          {data.map((record) => (
-            <HistoryListItem key={uuidv4()}>{record}</HistoryListItem>
+      <HistoryContainer isShow={isShow} data-testid="history_container">
+        <HistoryList data-testid="history_list">
+          {data.map((record, index) => (
+            <HistoryListItem key={uuidv4()} data-testid={`history_list_item${index}`}>
+              {record}
+            </HistoryListItem>
           ))}
         </HistoryList>
-        <Button isShow={isShow} onClick={() => clearHistory()}>
+        <Button data-testid="history_clear_button" isShow={isShow} onClick={() => clearHistory()}>
           Clear
         </Button>
-      </HistoryWrapper>
+      </HistoryContainer>
     );
   }
 }

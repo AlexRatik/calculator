@@ -1,6 +1,6 @@
-import React from 'react';
+import { memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { HistoryWrapper, HistoryList, HistoryListItem, Button } from './components';
+import { HistoryList, HistoryListItem, Button, HistoryContainer } from './components';
 
 interface HistoryProps {
   data: string[];
@@ -8,17 +8,19 @@ interface HistoryProps {
   isShow: boolean;
 }
 
-export const History = ({ isShow, clearHistory, data }: HistoryProps) => {
+export const History = memo(({ isShow, clearHistory, data }: HistoryProps) => {
   return (
-    <HistoryWrapper isShow={isShow}>
-      <HistoryList>
-        {data.map((record) => (
-          <HistoryListItem key={uuidv4()}>{record}</HistoryListItem>
+    <HistoryContainer isShow={isShow} data-testid="history_container">
+      <HistoryList data-testid="history_list">
+        {data.map((record, index) => (
+          <HistoryListItem data-testid={`history_list_item${index}`} key={uuidv4()}>
+            {record}
+          </HistoryListItem>
         ))}
       </HistoryList>
-      <Button isShow={isShow} onClick={() => clearHistory()}>
+      <Button data-testid="history_clear_button" isShow={isShow} onClick={() => clearHistory()}>
         Clear
       </Button>
-    </HistoryWrapper>
+    </HistoryContainer>
   );
-};
+});
