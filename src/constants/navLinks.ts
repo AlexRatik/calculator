@@ -1,4 +1,4 @@
-import { INavLink } from '@interfaces/INavLink';
+import { INavLink } from '@interfaces';
 
 export const navLinks: INavLink[] = [
   {
