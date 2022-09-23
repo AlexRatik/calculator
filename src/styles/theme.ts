@@ -14,17 +14,15 @@ const lightBg = '#f5f5f5';
 const darkBg = '#3e3e3e';
 const slimBorderWidth = '1px';
 const blockBorderWidth = '2px';
-const buttonBorderRadius = '20px';
 
 const defaultTheme = {
   font,
   spaces: ['0', '4px', '8px', '16px', '32px', '64px', '128px'],
   fontSizes: ['12px', '14px', '16px', '20px', '24px', '32px', '40px', '56px', '72px', '80px'],
-  keySize: '80px',
-  headerHeight: '80px',
+  keySize: '7vw',
   slimBorderWidth,
   blockBorderWidth,
-  buttonBorderRadius,
+  buttonBorderRadiuses: ['10px', '20px'],
   webkitScrollBarWidth: '5px',
   defaultTransition: '100ms',
   colors: {
