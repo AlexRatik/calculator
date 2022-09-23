@@ -3,7 +3,7 @@ import { ErrorBoundary } from '@components/errorBoundary';
 import { HomeContainer, Wrapper, ShowHideButton } from './components';
 import { Display } from '@components/display';
 import { Keypad } from '@components/keypad';
-import { useAppDispatch, useAppSelector } from '@hooks/hooks';
+import { useAppDispatch, useAppSelector } from '@hooks';
 import {
   backspaceExpression,
   clearExpression,
@@ -12,7 +12,7 @@ import {
   setTap,
   toggleSign,
 } from '@slices/calculatorSlice';
-import { keyboardEnum } from '@constants/keypad';
+import { keypadEnum, keypadButtons } from '@constants/keypadButtons';
 import { History } from '@components/history';
 
 export const Home = () => {
@@ -22,13 +22,13 @@ export const Home = () => {
   const [isShowHistory, setIsShowHistory] = useState<boolean>(true);
 
   const tap = (value: string) => {
-    if (value === keyboardEnum.CLEAR) {
+    if (value === keypadEnum.CLEAR) {
       dispatch(clearExpression());
-    } else if (value === keyboardEnum.CLEAR_ENTRY) {
+    } else if (value === keypadEnum.CLEAR_ENTRY) {
       dispatch(backspaceExpression());
-    } else if (value === keyboardEnum.EQUAL) {
+    } else if (value === keypadEnum.EQUAL) {
       dispatch(equalExpression());
-    } else if (value === keyboardEnum.TOGGLE_SIGN) {
+    } else if (value === keypadEnum.TOGGLE_SIGN) {
       dispatch(toggleSign());
     } else {
       dispatch(setTap(value));
@@ -41,6 +41,7 @@ export const Home = () => {
         <Wrapper>
           <Display value={expression} error={error} />
           <Keypad
+            keypadButtons={keypadButtons}
             onClick={(val: string) => {
               tap(val);
             }}

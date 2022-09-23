@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ICalculator } from '@interfaces/ICalculator';
+import { ICalculator } from '@interfaces';
 import { connect } from 'react-redux';
 import {
   backspaceExpression,
@@ -14,7 +14,7 @@ import { HomeContainer, ShowHideButton, Wrapper } from '@pages/home/components';
 import { DisplayOnClass } from '@components/display';
 import { KeypadOnClass } from '@components/keypad';
 import { HistoryOnClass } from '@components/history';
-import { keyboardEnum } from '@constants/keypad';
+import { keypadEnum, keypadButtons } from '@constants/keypadButtons';
 
 interface HomeOnClassProps extends ICalculator {
   setTap: (action: string) => void;
@@ -38,13 +38,13 @@ class HomeOnClass extends Component<HomeOnClassProps, HomeOnClassState> {
   }
 
   tap = (value: string) => {
-    if (value === keyboardEnum.CLEAR) {
+    if (value === keypadEnum.CLEAR) {
       this.props.clearExpression();
-    } else if (value === keyboardEnum.CLEAR_ENTRY) {
+    } else if (value === keypadEnum.CLEAR_ENTRY) {
       this.props.backspaceExpression();
-    } else if (value === keyboardEnum.EQUAL) {
+    } else if (value === keypadEnum.EQUAL) {
       this.props.equalExpression();
-    } else if (value === keyboardEnum.TOGGLE_SIGN) {
+    } else if (value === keypadEnum.TOGGLE_SIGN) {
       this.props.toggleSign();
     } else {
       this.props.setTap(value);
@@ -64,6 +64,7 @@ class HomeOnClass extends Component<HomeOnClassProps, HomeOnClassState> {
           <Wrapper>
             <DisplayOnClass value={expression} error={error} />
             <KeypadOnClass
+              keypadButtons={keypadButtons}
               onClick={(val: string) => {
                 this.tap(val);
               }}
