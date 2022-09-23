@@ -12,7 +12,9 @@ module.exports = {
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@store': path.resolve(__dirname, 'src/store'),
+      '@types': path.resolve(__dirname, 'src/types'),
       '@slices': path.resolve(__dirname, 'src/store/slices'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
     },
   },
 };
