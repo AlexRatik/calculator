@@ -38,7 +38,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:cypress/recommended"
     ]
   },
   "browserslist": {
@@ -66,6 +67,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "gh-pages": "^4.0.0",
+    "install": "^0.13.0",
+    "npm": "^8.19.2",
     "prettier": "^2.7.1",
     "start-server-and-test": "^1.14.0"
   }
