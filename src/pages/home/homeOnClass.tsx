@@ -10,11 +10,12 @@ import {
   toggleSign,
 } from '@slices/calculatorSlice';
 import { ErrorBoundary } from '@components/errorBoundary';
-import { HomeContainer, ShowHideButton, Wrapper } from '@pages/home/components';
+import { HomeContainer, Wrapper } from '@pages/home/components';
 import { DisplayOnClass } from '@components/display';
 import { KeypadOnClass } from '@components/keypad';
 import { HistoryOnClass } from '@components/history';
 import { keypadEnum, keypadButtons } from '@constants/keypadButtons';
+import { ControlPanel } from '@components/controlPanel';
 
 interface HomeOnClassProps extends ICalculator {
   setTap: (action: string) => void;
@@ -55,6 +56,11 @@ class HomeOnClass extends Component<HomeOnClassProps, HomeOnClassState> {
     this.setState((prev) => ({ isShowHistory: !prev.isShowHistory }));
   };
 
+  clearAll = () => {
+    this.props.clearExpression();
+    this.props.clearHistory();
+  };
+
   render() {
     const { isShowHistory } = this.state;
     const { expression, history, error } = this.props;
@@ -75,9 +81,11 @@ class HomeOnClass extends Component<HomeOnClassProps, HomeOnClassState> {
             data={history}
             clearHistory={() => this.props.clearHistory()}
           />
-          <ShowHideButton onClick={this.setIsShowHistory}>
-            {isShowHistory ? 'Hide' : 'Show'} history
-          </ShowHideButton>
+          <ControlPanel
+            isShowHistory={isShowHistory}
+            setIsShowHistory={() => this.setIsShowHistory()}
+            clearAll={this.clearAll}
+          />
         </ErrorBoundary>
       </HomeContainer>
     );

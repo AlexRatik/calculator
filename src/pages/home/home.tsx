@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ErrorBoundary } from '@components/errorBoundary';
-import { HomeContainer, Wrapper, ShowHideButton } from './components';
+import { HomeContainer, Wrapper } from './components';
 import { Display } from '@components/display';
 import { Keypad } from '@components/keypad';
 import { useAppDispatch, useAppSelector } from '@hooks';
@@ -14,6 +14,7 @@ import {
 } from '@slices/calculatorSlice';
 import { keypadEnum, keypadButtons } from '@constants/keypadButtons';
 import { History } from '@components/history';
+import { ControlPanel } from '@components/controlPanel';
 
 export const Home = () => {
   const { expression, history, error } = useAppSelector((state) => state.calculator);
@@ -35,6 +36,11 @@ export const Home = () => {
     }
   };
 
+  const clearAll = () => {
+    dispatch(clearExpression());
+    dispatch(clearHistory());
+  };
+
   return (
     <HomeContainer>
       <ErrorBoundary errorMessage={'Something went wrong...Try again, please'}>
@@ -52,9 +58,11 @@ export const Home = () => {
           data={history}
           clearHistory={() => dispatch(clearHistory())}
         />
-        <ShowHideButton onClick={() => setIsShowHistory((prev) => !prev)}>
-          {isShowHistory ? 'Hide' : 'Show'} history
-        </ShowHideButton>
+        <ControlPanel
+          isShowHistory={isShowHistory}
+          setIsShowHistory={() => setIsShowHistory((prev) => !prev)}
+          clearAll={clearAll}
+        />
       </ErrorBoundary>
     </HomeContainer>
   );
