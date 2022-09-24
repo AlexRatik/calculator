@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Button, Container } from '@components/keypad/components';
 import { v4 as uuidv4 } from 'uuid';
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ErrorBoundary } from '@components/errorBoundary';
 import { HomeContainer, Wrapper } from './components';
 import { Display } from '@components/display';

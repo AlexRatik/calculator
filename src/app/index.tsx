@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppRouter } from './appRouter';
 import { useAppSelector } from '@hooks';
 import { ThemeProvider } from 'styled-components';

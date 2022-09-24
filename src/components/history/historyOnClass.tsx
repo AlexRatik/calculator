@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { PureComponent } from 'react';
 import {
   Button,
   HistoryContainer,
@@ -13,7 +13,7 @@ interface HistoryOnClassProps {
   isShow: boolean;
 }
 
-export class HistoryOnClass extends Component<HistoryOnClassProps> {
+export class HistoryOnClass extends PureComponent<HistoryOnClassProps> {
   render() {
     const { data, clearHistory, isShow } = this.props;
     return (

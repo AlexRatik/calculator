@@ -1,5 +1,4 @@
 import { ControlPanelContainer, Button, ShowHideButton } from './components';
-import React from 'react';
 
 interface ControlPanelProps {
   isShowHistory: boolean;

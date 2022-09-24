@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import { Component, ReactNode } from 'react';
 import { StyledError } from '@components/errorBoundary/components';
 
 interface ErrorBoundaryProps {

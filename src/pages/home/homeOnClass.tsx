@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { ICalculator } from '@interfaces';
 import { connect } from 'react-redux';
 import {
@@ -15,7 +15,7 @@ import { DisplayOnClass } from '@components/display';
 import { KeypadOnClass } from '@components/keypad';
 import { HistoryOnClass } from '@components/history';
 import { keypadEnum, keypadButtons } from '@constants/keypadButtons';
-import { ControlPanel } from '@components/controlPanel';
+import ControlPanelOnClass from '@components/controlPanel/controlPanelOnClass';
 
 interface HomeOnClassProps extends ICalculator {
   setTap: (action: string) => void;
@@ -81,7 +81,7 @@ class HomeOnClass extends Component<HomeOnClassProps, HomeOnClassState> {
             data={history}
             clearHistory={() => this.props.clearHistory()}
           />
-          <ControlPanel
+          <ControlPanelOnClass
             isShowHistory={isShowHistory}
             setIsShowHistory={() => this.setIsShowHistory()}
             clearAll={this.clearAll}
