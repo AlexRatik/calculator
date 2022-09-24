@@ -19,6 +19,14 @@ describe('Should count simple expressions', () => {
     cy.get('[data-testid="display_text"]').should('have.text', 2 - 7);
   });
 
+  it('Just division', () => {
+    cy.get('[data-testid="keypad_button2"]').click();
+    cy.get('[data-testid="keypad_button/"]').click();
+    cy.get('[data-testid="keypad_button7"]').click();
+    cy.get('[data-testid="keypad_button="]').click();
+    cy.get('[data-testid="display_text"]').should('have.text', (2 / 7).toFixed(3));
+  });
+
   it('Just multiply', () => {
     cy.get('[data-testid="keypad_button9"]').click();
     cy.get('[data-testid="keypad_button*"]').click();
