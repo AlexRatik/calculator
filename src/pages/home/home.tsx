@@ -4,17 +4,11 @@ import { HomeContainer, Wrapper } from './components';
 import { Display } from '@components/display';
 import { Keypad } from '@components/keypad';
 import { useAppDispatch, useAppSelector } from '@hooks';
-import {
-  backspaceExpression,
-  clearExpression,
-  clearHistory,
-  equalExpression,
-  setTap,
-  toggleSign,
-} from '@slices/calculatorSlice';
-import { keypadEnum, keypadButtons } from '@constants/keypadButtons';
+import { clearExpression, clearHistory } from '@slices/calculatorSlice';
+import { keypadButtons } from '@constants/keypadButtons';
 import { History } from '@components/history';
 import { ControlPanel } from '@components/controlPanel';
+import { useCalculatorController } from '@hooks';
 
 export const Home = () => {
   const { expression, history, error } = useAppSelector((state) => state.calculator);
@@ -22,19 +16,7 @@ export const Home = () => {
 
   const [isShowHistory, setIsShowHistory] = useState<boolean>(true);
 
-  const tap = (value: string) => {
-    if (value === keypadEnum.CLEAR) {
-      dispatch(clearExpression());
-    } else if (value === keypadEnum.CLEAR_ENTRY) {
-      dispatch(backspaceExpression());
-    } else if (value === keypadEnum.EQUAL) {
-      dispatch(equalExpression());
-    } else if (value === keypadEnum.TOGGLE_SIGN) {
-      dispatch(toggleSign());
-    } else {
-      dispatch(setTap(value));
-    }
-  };
+  const tap = useCalculatorController();
 
   const clearAll = () => {
     dispatch(clearExpression());

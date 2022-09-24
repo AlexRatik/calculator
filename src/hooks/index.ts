@@ -1,3 +1,3 @@
 import { useAppSelector, useAppDispatch } from './reduxHooks';
-
-export { useAppSelector, useAppDispatch };
+import { useCalculatorController } from './useCalculatorController';
+export { useAppSelector, useAppDispatch, useCalculatorController };
