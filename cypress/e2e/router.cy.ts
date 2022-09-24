@@ -18,6 +18,10 @@ describe('router functionality', () => {
       });
   });
 
+  it('should start from /fc path', () => {
+    cy.location('pathname').should('eq', '/fc');
+  });
+
   it('should navigate to /cc', () => {
     cy.location('pathname').should('eq', '/');
     cy.get('[data-testid="header_nav_item0"]').click();

@@ -6,13 +6,10 @@ import { HomeOnClass } from '@pages/home';
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/">
-        <Route index element={<Home />} />
-        <Route path="fc" element={<Home />} />
-        <Route path="cc" element={<HomeOnClass />} />
-        <Route path="settings" element={<Settings />} />
-      </Route>
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/*" element={<Navigate to="/fc" />} />
+      <Route path="fc" element={<Home />} />
+      <Route path="cc" element={<HomeOnClass />} />
+      <Route path="settings" element={<Settings />} />
     </Routes>
   );
 };
