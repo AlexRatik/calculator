@@ -9,6 +9,7 @@ import { keypadButtons } from '@constants/keypadButtons';
 import { History } from '@components/history';
 import { ControlPanel } from '@components/controlPanel';
 import { useCalculatorController } from '@hooks';
+import { ErrorMessagesEnum } from '@constants/ErrorMessages';
 
 export const Home = () => {
   const { expression, history, error } = useAppSelector((state) => state.calculator);
@@ -25,7 +26,7 @@ export const Home = () => {
 
   return (
     <HomeContainer>
-      <ErrorBoundary errorMessage={'Something went wrong...Try again, please'}>
+      <ErrorBoundary errorMessage={ErrorMessagesEnum.SOMETHING_WENT_WRONG}>
         <Wrapper>
           <Display value={expression} error={error} />
           <Keypad

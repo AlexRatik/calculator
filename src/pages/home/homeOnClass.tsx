@@ -16,6 +16,7 @@ import { KeypadOnClass } from '@components/keypad';
 import { HistoryOnClass } from '@components/history';
 import { keypadEnum, keypadButtons } from '@constants/keypadButtons';
 import ControlPanelOnClass from '@components/controlPanel/controlPanelOnClass';
+import { ErrorMessagesEnum } from '@constants/ErrorMessages';
 
 interface HomeOnClassProps extends ICalculator {
   setTap: (action: string) => void;
@@ -66,7 +67,7 @@ class HomeOnClass extends Component<HomeOnClassProps, HomeOnClassState> {
     const { expression, history, error } = this.props;
     return (
       <HomeContainer>
-        <ErrorBoundary errorMessage={'Something went wrong...Try again, please'}>
+        <ErrorBoundary errorMessage={ErrorMessagesEnum.SOMETHING_WENT_WRONG}>
           <Wrapper>
             <DisplayOnClass value={expression} error={error} />
             <KeypadOnClass
