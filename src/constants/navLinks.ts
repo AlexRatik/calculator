@@ -2,15 +2,15 @@ import { INavLink } from '@interfaces';
 
 export const navLinks: INavLink[] = [
   {
-    path: 'cc',
+    path: 'calculator/cc',
     text: 'Switch to classes',
   },
   {
-    path: 'fc',
+    path: 'calculator/fc',
     text: 'Switch to functions',
   },
   {
-    path: 'settings',
+    path: 'calculator/settings',
     text: 'Settings',
   },
 ];

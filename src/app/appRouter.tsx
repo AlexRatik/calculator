@@ -6,10 +6,10 @@ import { HomeOnClass } from '@pages/home';
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/*" element={<Navigate to="/fc" />} />
-      <Route path="fc" element={<Home />} />
-      <Route path="cc" element={<HomeOnClass />} />
-      <Route path="settings" element={<Settings />} />
+      <Route path="/*" element={<Navigate to="calculator/fc" />} />
+      <Route path="calculator/fc" element={<Home />} />
+      <Route path="calculator/cc" element={<HomeOnClass />} />
+      <Route path="calculator/settings" element={<Settings />} />
     </Routes>
   );
 };
