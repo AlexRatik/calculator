@@ -10,15 +10,15 @@ interface HistoryProps {
 
 export const History = memo(({ isShow, clearHistory, data }: HistoryProps) => {
   return (
-    <HistoryContainer isShow={isShow} data-testid="history_container">
-      <HistoryList data-testid="history_list">
+    <HistoryContainer isShow={isShow} data-testid="historyContainer">
+      <HistoryList data-testid="historyList">
         {data.map((record, index) => (
-          <HistoryListItem data-testid={`history_list_item${index}`} key={uuidv4()}>
+          <HistoryListItem data-testid={`historyListItem${index}`} key={uuidv4()}>
             {record}
           </HistoryListItem>
         ))}
       </HistoryList>
-      <Button data-testid="history_clear_button" isShow={isShow} onClick={() => clearHistory()}>
+      <Button data-testid="historyClearButton" isShow={isShow} onClick={() => clearHistory()}>
         Clear
       </Button>
     </HistoryContainer>

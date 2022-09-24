@@ -8,6 +8,7 @@ export const HistoryContainer = styled.aside<{ isShow: boolean }>`
   flex-direction: column;
   align-items: center;
   width: ${(props) => (props.isShow ? '40%' : 0)};
+  opacity: ${(props) => (props.isShow ? 1 : 0.2)};
   border-left: ${({ theme }) => theme.blockBorder};
 `;
 
