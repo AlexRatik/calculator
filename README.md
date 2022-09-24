@@ -156,37 +156,37 @@
 #### Запуск ESlint
 - Проверка eslint
 
-  `yarn eslint:test`
+  `npm run eslint:test`
 
 - Проверка eslint и автофикс
 
-  `yarn eslint:fix`
+  `npm run eslint:fix`
 
 #### Запуск
 
 - Запуск проекта:
 
-  `yarn start`
+  `npm start`
 
 - Запуск проекта в режиме разработки
 
-  `yarn dev`
+  `npm run dev`
 
 #### Сборка
 
 - Сборка проекта:
 
-  `yarn build`
+  `npm run build`
 
 #### Тесты
 
 - Запуск теста в командной строке
 
-  `yarn build && yarn cypress:test`
+  `npm run build && yarn cypress:test`
 
 - Запуск тестов в графическом интерфейсе
 
-  `yarn cypress`
+  `npm run cypress`
 
 ### React Native
 
